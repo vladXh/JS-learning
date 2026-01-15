@@ -1,0 +1,50 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JS learning</title>
+</head>
+
+<body>
+    <h1 id="FirstHeader">Welcome to My JS Learning Page</h1>
+    <p id="firstP">Here I'll be creating multiple projects that involve JS to learn from</p>
+
+    <div>
+        <div id="CalculatorBackground">
+            <div>
+                <input type="text" id="CalculatorScreen" value="0" disabled>
+            </div>
+
+            <div id="CalculatorButtons">
+                <button onclick="clearScreen()">C</button>
+                <button onclick="deleteLast()">DEL</button>
+                <button onclick="appendToScreen('%')">%</button>
+                <button onclick="appendToScreen('/')">/</button>
+
+                
+                <button onclick="appendToScreen('7')">7</button>
+                <button onclick="appendToScreen('8')">8</button>
+                <button onclick="appendToScreen('9')">9</button>
+
+                <button onclick="appendToScreen('*')">*</button>
+
+                <button onclick="appendToScreen('4')">4</button>
+                <button onclick="appendToScreen('5')">5</button>
+                <button onclick="appendToScreen('6')">6</button>
+
+                <button onclick="appendToScreen('-')">-</button>
+
+                <button onclick="appendToScreen('1')">1</button>
+                <button onclick="appendToScreen('2')">2</button>
+                <button onclick="appendToScreen('3')">3</button>
+
+                <button onclick="appendToScreen('+')">+</button>
+
+                
+                <button onclick="appendToScreen('.')">.</button>
+                <button onclick="appendToScreen('0')">0</button>
+                <button class="wide" style="background-color: orangered;" onclick="calculateResult()">=</button>
+            </div>
+        </div>
+    </div>
+</body>
