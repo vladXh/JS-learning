@@ -44,6 +44,52 @@ p{
     padding-bottom: 36px;
 }
 
+#Test{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+#TestBtnDiv{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+}
+
+#TestButton{
+    margin: 0 auto 48px auto;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(31,31,31);
+    color: #f0f0f0;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px rgb(0, 0, 0);
+}
+#TestButton:hover{
+    background-color: rgb(50, 50, 50);
+}
+#TestButton:active{
+    box-shadow: inset 2px 2px 6px rgb(0, 0, 0);
+}
+
+#TestCircleDiv{
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    border-radius: 50%;
+    background-color: rgb(31,31,31);
+    box-shadow: 2px 2px 6px rgb(0, 0, 0);
+}
+
+#CalculatorContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #CalculatorBackground{
     display: grid;
     grid-template-rows: auto 1fr;
@@ -67,6 +113,7 @@ p{
 
     background-color: transparent;
     border: 0;
+
 }
 
 #CalculatorButtons{
@@ -89,6 +136,10 @@ p{
 }
 #CalculatorButtons button:hover{
     background-color: rgb(51, 52, 54);
+}
+
+#CalculatorButtons button:active{
+    box-shadow: inset 2px 2px 6px rgb(0, 0, 0);
 }
 
 .wide{
