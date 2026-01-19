@@ -41,6 +41,7 @@ buttonContainer.addEventListener("click", (e) => {
     
     if (!btn || !buttonContainer.contains(btn)) return;
 
+    // numbers and operators
     if (btn.dataset.value !== undefined) {
         console.log(btn.dataset.value);
 
@@ -72,7 +73,7 @@ buttonContainer.addEventListener("click", (e) => {
         screen.value += btn.dataset.value;
         updatescreen(btn.dataset.value);
 
-        if (btn.dataset.value === "%" || btn.dataset.value == "." && hasDecimal > 1) {
+        if (btn.dataset.value == "." && hasDecimal > 1) {
             console.log(hasDecimal);
             screen.value = screen.value.slice(0, -1);
             hasDecimal--;
@@ -88,15 +89,19 @@ buttonContainer.addEventListener("click", (e) => {
         if (btn.dataset.action === "clear") {
             screen.value = "0";
             hasDecimal = false;
-        } else if (btn.dataset.action === "delete") {
+        } else if (btn.dataset.action === "delete" && screen.value !== "0") {
             if (screen.value.slice(-1) === ".") {
                 hasDecimal = false;
+            }
+            if (screen.value.length === 1) {
+                screen.value = "0";
+                return;
             }
             screen.value = screen.value.slice(0, -1);
 
         } else if (btn.dataset.action === "calculate") {
             console.log("Calculating result...");
-            
+            screen.value = eval(screen.value);
             hasDecimal = false;
             operators = [];
             numbers = [];
