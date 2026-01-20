@@ -259,7 +259,8 @@ a{
     font-size: 18px;
     border-radius: 8px;
     border: none;
-    background-color: var(--secondary-color);
+    background-color: black;
+    border: 2px solid white;
     color: #f0f0f0;
     cursor: pointer;
     box-shadow: 2px 2px 6px var(--main-shadow-color);
