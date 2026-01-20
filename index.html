@@ -1,0 +1,111 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JS learning</title>
+</head>
+
+<body>
+
+    <nav id="mainNav">
+        <div>
+            <p>DUDEXH</p>
+        </div>
+        <ul>
+            <li><a href="#FirstHeader">HOME</a></li>
+            <li><a href="#Test">PROJECTS</a></li>
+            <li><a href="#CalculatorContainer">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <h1 id="signature">DUDEXH</h1>
+
+    <div id="containerBG">
+        
+        <div id="fakeNav">
+            <div id="fakeNavContainer">
+                <div class="fakeNavCircles" id="fakeNav1"></div>
+                <div class="fakeNavCircles" id="fakeNav2"></div>
+                <div class="fakeNavCircles" id="fakeNav3"></div>
+            </div>
+        </div>
+
+        <h1 id="FirstHeader">
+            THIS PROJECT SHOWCASE DOCUMENTS MY JOURNEY OF 
+            <span style="color: rgb(84, 84, 84);"> LEARNING JAVASCRIPT </span>  
+            BY BUILDING REAL, INTERACTIVE APPLICATIONS FROM THE GROUND UP.
+        </h1>
+
+        <div class="spacer"></div>
+
+        <div id="project">
+            <h1 class="projectNr">01</h1>
+
+            <div id="Test">
+                <div id="TestBtnDiv">
+                    <button id="TestButton">Click Me</button>
+                    <div id="TestCircleDiv"></div>
+                </div>    
+            </div>
+        </div>
+        
+        
+        <div class="spacer"></div>
+
+
+        <div id="project">
+            <h1 class="projectNr">02</h1>
+
+            <div id="CalculatorContainer">
+                <div id="CalculatorBackground">
+                    <div>
+                        <input type="text" id="CalculatorScreen" value="0" disabled>
+                    </div>
+
+                    <div id="CalculatorButtons">
+                        <button class="Calc-Btn" data-action="clear">C</button>
+                        <button class="Calc-Btn" data-action="delete">DEL</button>
+                        <button class="Calc-Btn" data-undefined="%">%</button>
+                        <button class="Calc-Btn" data-value="/">/</button>
+
+                        <button class="Calc-Btn" data-value="7">7</button>
+                        <button class="Calc-Btn" data-value="8">8</button>
+                        <button class="Calc-Btn" data-value="9">9</button>
+
+                        <button class="Calc-Btn" data-value="*">*</button>
+
+                        <button class="Calc-Btn" data-value="4">4</button>
+                        <button class="Calc-Btn" data-value="5">5</button>
+                        <button class="Calc-Btn" data-value="6">6</button>
+
+                        <button class="Calc-Btn" data-value="-">-</button>
+
+                        <button class="Calc-Btn" data-value="1">1</button>
+                        <button class="Calc-Btn" data-value="2">2</button>
+                        <button class="Calc-Btn" data-value="3">3</button>
+
+                        <button class="Calc-Btn" data-value="+">+</button>
+
+                        <button class="Calc-Btn" data-value=".">.</button>
+                        <button class="Calc-Btn" data-value="0">0</button>
+
+                        <button class="Calc-Btn wide" data-action="calculate" style="background-color: orangered;">=</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+        
+        <div id="project">
+            <h1 class="projectNr">03</h1>
+            <div>
+
+            </div>
+        </div>
+
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>

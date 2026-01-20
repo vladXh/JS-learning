@@ -11,7 +11,7 @@ document.getElementById("TestButton").addEventListener("click", function() {
         circleDiv.style.backgroundColor = 'orangered';
         toggled = true;
     } else if (toggled) {
-        circleDiv.style.backgroundColor = 'rgb(' + 31 + ',' + 31 + ',' + 31 + ')';
+        circleDiv.style.backgroundColor = 'rgb(' + 0 + ',' + 0 + ',' + 0 + ')';
         toggled = false;
     }
 

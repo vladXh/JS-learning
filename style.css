@@ -1,25 +1,57 @@
 :root {
-    --main-bg-color: #f0f0f0;
-    --main-text-color: #333333;
+    --main-bg-color: #000000;
+    --main-color: #000000;
+    --main-hover-color: #131313;
+    --secondary-color: #111111;
+    --main-text-color: #ffffff;
     --alt-text-color: #f1eeee;
+    --main-shadow-color: rgb(0, 0, 0);
     --main-font: Arial, Helvetica, sans-serif;
+    --default-margins: 32px;
+    --project-margin-right: 124px;
 }
 
 body {
     background-color: var(--main-bg-color);
-    margin: 64px;
+    margin: 16vw;
+    margin-top: 124px;
 }
 
 h1{
     font-family: var(--main-font);
+    color: var(--main-text-color);
 }
 p{
     font-family: var(--main-font);
+    color: var(--main-text-color);
     font-size: 16px;
+    margin: 0;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+    margin-bottom: 48px;
+}
+
+li{
+    float: left;
+}
+
+a{
+    display: block;
+    color: var(--alt-text-color);
+    text-align: center;
+    
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: var(--main-font);
 }
 
 .shadowEffect{
-    box-shadow: 0px 5px 10px rgb(0, 0, 0);
+    box-shadow: 0px 5px 10px var(--main-shadow-color);
 }
 
 .shadowText{
@@ -34,45 +66,142 @@ p{
     padding-top: 16px;
 }
 
-#FirstHeader{
-    text-align: center;
+.whiteTxt{
+    color: var(--alt-text-color);
+}
+
+.marg0{
     margin: 0;
 }
 
-#FirstP{
-    text-align: center;
-    padding-bottom: 36px;
+.wide{
+    grid-column: span 2;
+}
+
+.spacer{
+    width: 90%;
+    background-color: white;
+    height: 2px;
+    margin: 64px;
+}
+
+.fakeNavCircles{
+    display: inline-block;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin: 4px;
+    border-radius: 50%;
+    background-color: white;
+    transition: background-color 0.1s ease;
+}
+
+.projectNr{
+    font-size: 204px;
+    font-weight: 50;
+}
+
+#signature{
+    position: fixed;
+    bottom: 16px;
+    right: 32px;
+    font-family: var(--main-font);
+    color: var(--alt-text-color);
+    opacity: 0.5;
+    user-select: none;
+}
+
+#mainNav{
+    display: none;
+    height: 48px;
+    width: 100vw;
+    margin-bottom: 24px;
+
+    border-bottom: 2px solid white;
+    background-color: var(--main-color);
+    box-shadow: 0px 4px 8px rgb(0, 0, 0);
+}
+
+#mainNav p{
+    color: var(--alt-text-color);
+    font-family: var(--main-font);
+    font-size: 20px;
+    padding: 14px 16px;
+    margin: 0;
+}
+
+#containerBG{
+    border: 2px solid white;
+    border-radius: 16px;
+    padding-bottom: 32px;
+}
+
+#fakeNav{
+    width: 100%;
+    border-bottom: 2px solid white;
+    margin-bottom: 32px;
+}
+
+#fakeNavContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+#fakeNav1:hover{
+    background-color: #FF5F57;
+}
+#fakeNav2:hover{
+    background-color: #FFBD2E;
+}
+#fakeNav3:hover{
+    background-color: #28C840;
+}
+
+#FirstHeader{
+    text-align: right;
+    font-weight: 200;
+    margin: 84px;
+    margin-right: var(--project-margin-right);
+    margin-left: var(--project-margin-right);
+}
+
+#project{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: var(--project-margin-right);
+    margin-left: var(--project-margin-right);
 }
 
 #Test{
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     margin-bottom: 48px;
 }
 
 #TestBtnDiv{
     display: flex;
-    justify-content: center;
-    width: 200px;
 }
 
 #TestButton{
-    margin: 0 auto 48px auto;
+    margin-right: 12px;
     padding: 12px 24px;
     font-size: 16px;
     border-radius: 8px;
     border: none;
-    background-color: rgb(31,31,31);
+    background-color: var(--main-color);
     color: #f0f0f0;
     cursor: pointer;
-    box-shadow: 2px 2px 6px rgb(0, 0, 0);
+    border: 2px solid white;
 }
 #TestButton:hover{
-    background-color: rgb(50, 50, 50);
+    background-color: var(--main-hover-color);
 }
 #TestButton:active{
-    box-shadow: inset 2px 2px 6px rgb(0, 0, 0);
+    background-color: white;
 }
 
 #TestCircleDiv{
@@ -80,13 +209,13 @@ p{
     height: 50px;
     margin: 0;
     border-radius: 50%;
-    background-color: rgb(31,31,31);
-    box-shadow: 2px 2px 6px rgb(0, 0, 0);
+    background-color: var(--main-color);
+    border: 2px solid white;
 }
 
 #CalculatorContainer{
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
 }
 
@@ -98,8 +227,9 @@ p{
     padding: 36px;
     border-radius: 16px;
 
-    background-color: rgb(31,31,31);
-    box-shadow: 4px 4px 10px rgb(0, 0, 0);
+    border: 2px solid white;
+    background-color: var(--main-color);
+    box-shadow: 4px 4px 10px var(--main-shadow-color);
 }
 
 #CalculatorScreen{
@@ -129,19 +259,15 @@ p{
     font-size: 18px;
     border-radius: 8px;
     border: none;
-    background-color: rgb(41, 42, 44);
+    background-color: var(--secondary-color);
     color: #f0f0f0;
     cursor: pointer;
-    box-shadow: 2px 2px 6px rgb(0, 0, 0);
+    box-shadow: 2px 2px 6px var(--main-shadow-color);
 }
 #CalculatorButtons button:hover{
-    background-color: rgb(51, 52, 54);
+    background-color: var(--main-hover-color);
 }
 
 #CalculatorButtons button:active{
-    box-shadow: inset 2px 2px 6px rgb(0, 0, 0);
-}
-
-.wide{
-    grid-column: span 2;
+    box-shadow: inset 2px 2px 6px var(--main-shadow-color);
 }
