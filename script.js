@@ -3,16 +3,16 @@
 // Project 1: Toggle button //
 //////////////////////////////
 
-let toggled = false;
+let TestToggled = false;
 document.getElementById("TestButton").addEventListener("click", function() {
     const circleDiv = document.getElementById("TestCircleDiv");
     
-    if (!toggled) {
+    if (!TestToggled) {
         circleDiv.style.backgroundColor = 'orangered';
-        toggled = true;
-    } else if (toggled) {
-        circleDiv.style.backgroundColor = 'rgb(' + 0 + ',' + 0 + ',' + 0 + ')';
-        toggled = false;
+        TestToggled = true;
+    } else if (TestToggled) {
+        circleDiv.style.backgroundColor = document.documentElement.style.getPropertyValue('--main-bg-color');
+        TestToggled = false;
     }
 
 });
@@ -106,5 +106,47 @@ buttonContainer.addEventListener("click", (e) => {
             operators = [];
             numbers = [];
         }
+    }
+});
+
+
+
+//////////////////////
+// Dark Mode Toggle //
+//////////////////////
+
+const darkModeBtn = document.getElementById("darkModeToggle");
+let darkModeToggle = true;
+darkModeBtn.addEventListener("click", () => {
+    // document.getElementById("DarkModeOn").style.display = "none";
+    // document.getElementById("DarkModeOff").style.display = "block";    
+    if (!darkModeToggle) {
+        darkModeToggle = true;
+        document.getElementById("DarkModeOn").style.display = "block";
+        document.getElementById("DarkModeOff").style.display = "none";
+
+        if (!TestToggled){
+            document.getElementById("TestCircleDiv").style.backgroundColor = "rgb(0, 0, 0)";
+        }
+
+        document.documentElement.style.setProperty("--main-bg-color", "rgb(0, 0, 0)");
+        document.documentElement.style.setProperty("--main-text-color", "rgb(255,255,255)");
+        document.documentElement.style.setProperty("--secondary-color", "rgba(255, 255, 255, 1)");
+        document.documentElement.style.setProperty("--alt-text-color", "rgba(0, 0, 0, 1)");
+        document.documentElement.style.setProperty("--main-hover-color", "rgba(21, 21, 21, 0.1)");
+    } else {
+        darkModeToggle = false;
+        document.getElementById("DarkModeOn").style.display = "none";
+        document.getElementById("DarkModeOff").style.display = "block";
+
+        if (!TestToggled){
+            document.getElementById("TestCircleDiv").style.backgroundColor = "rgba(255, 255, 255, 1)";
+        }
+        
+        document.documentElement.style.setProperty("--main-bg-color", "rgba(255, 255, 255, 1)");
+        document.documentElement.style.setProperty("--main-text-color", "rgba(0, 0, 0, 1)");
+        document.documentElement.style.setProperty("--secondary-color", "rgba(0, 0, 0, 1)");
+        document.documentElement.style.setProperty("--alt-text-color", "rgba(255, 255, 255, 1)");
+        document.documentElement.style.setProperty("--main-hover-color", "rgba(216, 216, 216, 0.1)");
     }
 });
