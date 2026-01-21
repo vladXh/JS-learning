@@ -50,6 +50,14 @@ a{
     font-family: var(--main-font);
 }
 
+button:hover{
+    background-color: var(--main-hover-color);
+}
+
+button:active{
+    background-color: var(--main-active-color); 
+}
+
 .shadowEffect{
     box-shadow: 0px 5px 10px var(--main-shadow-color);
 }
@@ -131,12 +139,17 @@ a{
     border: 2px solid var(--secondary-color);
 }
 
-.counterButtons:hover{
-    background-color: var(--main-hover-color);
-}
+.ticTacBtn{
+    height: 72px;
+    width: 72px;
 
-.counterButtons:active{
-    background-color: var(--main-active-color);
+    font-size: 48px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    font-weight: 100;
+    font-family: var(--main-font);
 }
 
 #darkModeToggle{
@@ -343,4 +356,34 @@ a{
     font-weight: 100;
     text-align: center;
     margin: 0;
+}
+
+#ticTacContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+#ticTacResetBtn{
+    width: 100%;
+
+    margin-top: 16px;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 12px;
+
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    border: 2px solid var(--secondary-color);
+}
+
+#ticTacResetBtn:hover{
+    background-color: var(--main-hover-color);
+}
+
+#ticTacResetBtn:active{
+    background-color: var(--main-active-color);
 }

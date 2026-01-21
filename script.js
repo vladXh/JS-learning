@@ -151,6 +151,7 @@ darkModeBtn.addEventListener("click", () => {
     }
 });
 
+
 ////////////////////////
 // Project 3: Counter //
 ////////////////////////
@@ -173,4 +174,46 @@ counterBtns.addEventListener("click", (e) => {
     }
 
     counterNr.textContent = counterValue.toString().padStart(4, '0');
+});
+
+
+////////////////////////////
+// Project 4: Tic Tac Toe //
+////////////////////////////
+
+const ticTacBtnContainer = document.getElementById("ticTacContainer");
+let ticTacX = [];
+let ticTacO = [];
+let TicTacToggle = false;
+
+ticTacBtnContainer.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    
+    if (!btn || !ticTacBtnContainer.contains(btn)) return;
+
+    console.log(btn.dataset.value);
+    
+    if (btn.textContent === "") {
+        if (!TicTacToggle) {
+            btn.textContent = "x";
+            ticTacX.push(btn.dataset.value);
+            console.log(ticTacX);
+        } else {
+            btn.textContent = "o";
+            ticTacO.push(btn.dataset.value);
+            console.log(ticTacO);
+        }    
+        TicTacToggle = !TicTacToggle;
+    }
+});
+
+const ticTacResetBtn = document.getElementById("ticTacResetBtn");
+ticTacResetBtn.addEventListener("click", () => {
+    const ticTacButtons = document.querySelectorAll("#ticTacContainer button");
+    ticTacButtons.forEach((button) => {
+        button.textContent = "";
+    });
+    TicTacToggle = false;
+    ticTacO = [];
+    ticTacX = [];
 });
