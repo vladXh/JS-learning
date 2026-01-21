@@ -150,3 +150,27 @@ darkModeBtn.addEventListener("click", () => {
         document.documentElement.style.setProperty("--main-hover-color", "rgba(216, 216, 216, 0.1)");
     }
 });
+
+////////////////////////
+// Project 3: Counter //
+////////////////////////
+
+const counterNr = document.getElementById("counterNr");
+const counterBtns = document.getElementById("counterBtnContainer");
+let counterValue = 0;
+
+counterBtns.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+
+    if (!btn || !counterBtns.contains(btn)) return;
+
+    if (btn.dataset.action === "up") {
+        counterValue++;
+        console.log(counterValue);
+    } else if (btn.dataset.action === "down") {
+        counterValue--;
+        console.log(counterValue);
+    }
+
+    counterNr.textContent = counterValue.toString().padStart(4, '0');
+});
