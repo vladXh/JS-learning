@@ -167,7 +167,7 @@ counterBtns.addEventListener("click", (e) => {
     if (btn.dataset.action === "up") {
         counterValue++;
         console.log(counterValue);
-    } else if (btn.dataset.action === "down") {
+    } else if (btn.dataset.action === "down" && counterValue > 0) {
         counterValue--;
         console.log(counterValue);
     }
