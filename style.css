@@ -152,6 +152,14 @@ button:active{
     font-family: var(--main-font);
 }
 
+.ticTacBtnXWon{
+    border: 2px solid red;
+}
+
+.ticTacBtnOWon{
+    border: 2px solid blue;
+}
+
 #darkModeToggle{
     position: fixed;
     bottom: 16px;

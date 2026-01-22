@@ -185,6 +185,18 @@ const ticTacBtnContainer = document.getElementById("ticTacContainer");
 let ticTacX = [];
 let ticTacO = [];
 let TicTacToggle = false;
+let ticTackGameEnded = false;
+
+const winningCombinations = [
+    ["1", "2", "3"],
+    ["4", "5", "6"],
+    ["7", "8", "9"],
+    ["1", "4", "7"],
+    ["2", "5", "8"],
+    ["3", "6", "9"],
+    ["1", "5", "9"],
+    ["3", "5", "7"]
+];
 
 ticTacBtnContainer.addEventListener("click", (e) => {
     const btn = e.target.closest("button");
@@ -193,16 +205,36 @@ ticTacBtnContainer.addEventListener("click", (e) => {
 
     console.log(btn.dataset.value);
     
-    if (btn.textContent === "") {
+    if (btn.textContent === "" && !ticTackGameEnded) {
+        let playerTurnChar;
         if (!TicTacToggle) {
-            btn.textContent = "x";
+            playerTurnChar = "x";
             ticTacX.push(btn.dataset.value);
             console.log(ticTacX);
         } else {
-            btn.textContent = "o";
+            playerTurnChar = "o";
             ticTacO.push(btn.dataset.value);
             console.log(ticTacO);
         }    
+
+        // Check for win
+        const nrWinningComb = winningCombinations.length;
+        for (let i = 0; i < nrWinningComb; i++) {
+            const combination = winningCombinations[i];
+            if (!TicTacToggle) {
+                if (combination.every(val => ticTacX.includes(val))) {
+                    console.log("Player X Wins!");
+                    ticTackGameEnded = true;
+                }
+            } else {
+                if (combination.every(val => ticTacO.includes(val))) {
+                    console.log("Player O Wins!");
+                    ticTackGameEnded = true;
+                }
+            }
+        }
+
+        btn.textContent = playerTurnChar;
         TicTacToggle = !TicTacToggle;
     }
 });
