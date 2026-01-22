@@ -186,6 +186,7 @@ let ticTacX = [];
 let ticTacO = [];
 let TicTacToggle = false;
 let ticTackGameEnded = false;
+let ticTacWinner;
 
 const winningCombinations = [
     ["1", "2", "3"],
@@ -197,6 +198,20 @@ const winningCombinations = [
     ["1", "5", "9"],
     ["3", "5", "7"]
 ];
+
+function ticTacAddGlow(combination, red){
+    for (let i = 0; i < combination.length; i++){
+        for (const child of ticTacBtnContainer.children){
+            if(combination[i] === child.dataset.value){
+                if(red){
+                    child.classList.add("redShadow");    
+                }else{
+                    child.classList.add("blueShadow")
+                }
+            }
+        };
+    };
+};
 
 ticTacBtnContainer.addEventListener("click", (e) => {
     const btn = e.target.closest("button");
@@ -223,13 +238,21 @@ ticTacBtnContainer.addEventListener("click", (e) => {
             const combination = winningCombinations[i];
             if (!TicTacToggle) {
                 if (combination.every(val => ticTacX.includes(val))) {
+                    
                     console.log("Player X Wins!");
                     ticTackGameEnded = true;
+                    ticTacBtnContainer.classList.add("redShadow")
+                    ticTacWinner = "x";
+                    ticTacAddGlow(combination, true);                
                 }
             } else {
                 if (combination.every(val => ticTacO.includes(val))) {
+                    
                     console.log("Player O Wins!");
                     ticTackGameEnded = true;
+                    ticTacBtnContainer.classList.add("blueShadow")
+                    ticTacWinner = "o";
+                    ticTacAddGlow(combination, false);
                 }
             }
         }
@@ -248,4 +271,21 @@ ticTacResetBtn.addEventListener("click", () => {
     TicTacToggle = false;
     ticTacO = [];
     ticTacX = [];
+
+    if (ticTacWinner === "o"){
+        ticTacBtnContainer.classList.remove("blueShadow");
+    } else if (ticTacWinner == "x"){
+        ticTacBtnContainer.classList.remove("redShadow");
+    }
+
+    ticTackGameEnded = false;
+    ticTacWinner = "";
+
+    for(const child of ticTacBtnContainer.children){
+        for(const cls of child.classList){
+            if (cls === "redShadow" || cls === "blueShadow"){
+                child.classList.remove(cls);
+            }
+        }
+    }
 });
