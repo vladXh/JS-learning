@@ -1,3 +1,7 @@
+function wait(ms){
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 
 //////////////////////////////
 // Project 1: Toggle button //
@@ -200,14 +204,29 @@ const winningCombinations = [
 ];
 
 function ticTacAddGlow(combination, red){
+    let addedClass;
+
+    async function flickerLoop(className, object, loopTimeMs){
+        while (ticTackGameEnded){
+            await wait(loopTimeMs);
+            object.classList.add("low");
+            await wait(loopTimeMs);
+            object.classList.remove("low")
+            console.log("loop ran once")
+        }
+    }
+    
     for (let i = 0; i < combination.length; i++){
         for (const child of ticTacBtnContainer.children){
             if(combination[i] === child.dataset.value){
                 if(red){
-                    child.classList.add("redShadow");    
+                    addedClass = "redShadow";
                 }else{
-                    child.classList.add("blueShadow")
+                    addedClass = "blueShadow";
                 }
+                child.classList.add(addedClass);
+                flickerLoop(addedClass, child, 1000);
+                ticTacBtnContainer.classList.add(addedClass);
             }
         };
     };
@@ -217,19 +236,15 @@ ticTacBtnContainer.addEventListener("click", (e) => {
     const btn = e.target.closest("button");
     
     if (!btn || !ticTacBtnContainer.contains(btn)) return;
-
-    console.log(btn.dataset.value);
     
     if (btn.textContent === "" && !ticTackGameEnded) {
         let playerTurnChar;
         if (!TicTacToggle) {
             playerTurnChar = "x";
             ticTacX.push(btn.dataset.value);
-            console.log(ticTacX);
         } else {
             playerTurnChar = "o";
             ticTacO.push(btn.dataset.value);
-            console.log(ticTacO);
         }    
 
         // Check for win
@@ -238,10 +253,9 @@ ticTacBtnContainer.addEventListener("click", (e) => {
             const combination = winningCombinations[i];
             if (!TicTacToggle) {
                 if (combination.every(val => ticTacX.includes(val))) {
-                    
+                   
                     console.log("Player X Wins!");
                     ticTackGameEnded = true;
-                    ticTacBtnContainer.classList.add("redShadow")
                     ticTacWinner = "x";
                     ticTacAddGlow(combination, true);                
                 }
@@ -250,7 +264,6 @@ ticTacBtnContainer.addEventListener("click", (e) => {
                     
                     console.log("Player O Wins!");
                     ticTackGameEnded = true;
-                    ticTacBtnContainer.classList.add("blueShadow")
                     ticTacWinner = "o";
                     ticTacAddGlow(combination, false);
                 }
